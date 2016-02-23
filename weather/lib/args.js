@@ -3,6 +3,15 @@ var http = require('http'),
     chalk = require('chalk'),
     Format = require('./format');
 
+
+/**
+ * weatherRequest - Call the HTTP request's method to retrieve the weather, and call function to display results
+ *
+ * @param  {type} location : object that contains lat and lng, according to the users IP address
+ * @param  {type} args : User's arguments of when he call the method
+ * @param  {type} units : contains  metric type, temperature and wind speed data
+ * @param  {type} ip : client ip
+ */
 function weatherRequest(location, units, args) {
     var weather_options = {
         host: 'api.forecast.io',
@@ -28,6 +37,15 @@ function weatherRequest(location, units, args) {
     });
 }
 
+
+/**
+ * address - Perform the HTTP request
+ *
+ * @param  {type} addr     web address
+ * @param  {type} callback what is return by the function
+ * @param  {type} args     User's arguments of when he call the method
+ * @param  {type} units    contains  metric type, temperature and wind speed data
+ */
 function address(addr, callback, units, args) {
 
     var location_options = {
@@ -60,6 +78,15 @@ function address(addr, callback, units, args) {
     });
 }
 
+
+/**
+ * automatic - Retrieve geolocation of the server the user is connected to
+ *
+ * @param  {type} ip       user's ip
+ * @param  {type} callback what is return by the function
+ * @param  {type} args     User's arguments of when he call the method
+ * @param  {type} units    contains  metric type, temperature and wind speed data 
+ */
 function automatic(ip, callback, units, args) {
 
     var location_options = {

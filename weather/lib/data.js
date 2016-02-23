@@ -3,6 +3,12 @@ var chalk = require('chalk'),
     blue = chalk.blue,
     table = require('cli-table');
 
+
+/**
+ * collectDates - Create an array containing all the dates
+ *
+ * @param  {type} data object containing dates
+ */
 function collectDates(data) {
     var dates = [];
 
@@ -14,6 +20,13 @@ function collectDates(data) {
     return dates;
 }
 
+
+/**
+ * collectHighs - collect max of high value  of temperature
+ *
+ * @param  {type} data  array of temperature
+ * @param  {type} units contains  metric type, temperature and wind speed data
+ */
 function collectHighs(data, units) {
     var highs = [],
         temp,
@@ -35,6 +48,13 @@ function collectHighs(data, units) {
     return highs;
 }
 
+
+/**
+ * collectLows - collect min of low value of temperature
+ *
+ * @param  {type} data  temperature array
+ * @param  {type} units contains  metric type, temperature and wind speed data 
+ */
 function collectLows(data, units) {
     var lows = [],
         temp,

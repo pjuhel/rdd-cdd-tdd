@@ -9,12 +9,25 @@ var args = require('./args'),
 var path = pathing.dirname(require.main.filename) + '/lib/config.json',
     help = require('./help');
 
+
+/**
+ * Config - Create a config object
+ *
+ * @param  {type} units : contains  metric type, temperature and wind speed data
+ * @param  {type} ip : client ip
+ *
+ */
 function Config(units, ip) {
     this.args = parseArgs(process.argv.slice(2));
     this.units = units;
     this.ip = ip;
 }
 
+
+/**
+ * anonymous function - Save user's configuration
+ *
+ */
 Config.prototype.sudo = function () {
 
     var that = this;
@@ -34,6 +47,9 @@ Config.prototype.sudo = function () {
     }
 };
 
+/**
+ * anonymous function - Check user's configuration along with argument given when the method is called
+*/
 Config.prototype.control = function () {
     var keys = Object.keys(this.args).length - 1,
         args = this.args;
@@ -54,6 +70,13 @@ if(!String.prototype.includes) {
 }
 
 
+/**
+ * write - Recall the user that he can save his preset, and if he do display if it's saved or not
+ *
+ * @param  {type} args : arguments that user gives to the function ( address, save parameter,....)
+ * @param  {type} units : contains  metric type, temperature and wind speed data
+ * @param  {type} ip  :  user's ip
+ */
 function write(args, units, ip) {
 
     console.log(chalk.red('you may have to use ') + chalk.bgBlack.white('sudo') +
@@ -73,6 +96,14 @@ function write(args, units, ip) {
 
 }
 
+
+/**
+ * read - Read user's presets
+ *
+ * @param  {type} args : function's arguments
+ * @param  {type} units : contains  metric type, temperature and wind speed data
+ * @param  {type} ip  : client ip
+ */
 function read(args, units, ip) {
 
     if (args.c && !(args.s || args.save)) {
@@ -96,6 +127,14 @@ function read(args, units, ip) {
     }
 }
 
+
+/**
+ * handleArgs - Handle user's arguments
+ *
+ * @param  {type} argv : user's arguments
+ * @param  {type} units : contains  metric type, temperature and wind speed data
+ * @param  {type} ip  :  client ip
+ */
 function handleArgs(argv, units, ip) {
 
     help(argv);
@@ -118,6 +157,13 @@ function handleArgs(argv, units, ip) {
 
 }
 
+
+/**
+ * instance - create a new configuration
+ *
+ * @param  {type} argv : user's arguments
+ * @param  {type} units : contains  metric type, temperature and wind speed data
+ */
 function instance(units, ip) {
     return new Config(units, ip);
 }

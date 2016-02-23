@@ -1,7 +1,7 @@
 {
   "name": "cli-weather",
   "scripts": {
-    "test": "mocha && jshint index.js lib/*.js",
+    "test": "mocha",
     "coverage": "istanbul cover _mocha -- -R spec"
   },
   "preferGlobal": true,
