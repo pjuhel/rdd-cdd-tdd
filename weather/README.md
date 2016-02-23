@@ -10,7 +10,7 @@ Once the repository download, simply open a console in that folder, then run the
 
 To run this weather tool, use this command line ( always with a cmd opened in that repository ): `$ node index.js`
 
-#### option
+#### Option
 
 Many option are accessible :
 
