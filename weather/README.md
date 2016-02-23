@@ -12,7 +12,9 @@ To run this weather tool, use this command line ( always with a cmd opened in th
 
 #### option
 
-Many option are accessible : -a allow passing a specific address : `$ node index.js -a "Paris"`
+Many option are accessible :
+
+                             -a allow passing a specific address : `$ node index.js -a "Paris"`
 
                              -c specify the use of the metric unit : `$ node index.js -c`
 
